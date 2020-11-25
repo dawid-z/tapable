@@ -10,7 +10,10 @@
     "url": "http://github.com/webpack/tapable.git"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.8",
     "@babel/core": "^7.4.4",
+    "@babel/plugin-transform-arrow-functions": "^7.12.1",
+    "@babel/plugin-transform-classes": "^7.12.1",
     "@babel/preset-env": "^7.4.4",
     "babel-jest": "^24.8.0",
     "codecov": "^3.5.0",
@@ -31,7 +34,8 @@
     "test": "jest",
     "travis": "yarn pretty-lint && jest --coverage && codecov",
     "pretty-lint": "prettier --check lib/*.js lib/__tests__/*.js",
-    "pretty": "prettier --loglevel warn --write lib/*.js lib/__tests__/*.js"
+    "pretty": "prettier --loglevel warn --write lib/*.js lib/__tests__/*.js",
+    "build": " ./node_modules/.bin/babel lib -d build"
   },
   "jest": {
     "transform": {
