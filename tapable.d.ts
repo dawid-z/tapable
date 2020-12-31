@@ -64,6 +64,7 @@ declare class Hook<T, R, AdditionalOptions = UnsetAdditionalOptions> {
 	promise(...args: AsArray<T>): Promise<R>;
 	tap(options: string | Tap & IfSet<AdditionalOptions>, fn: (...args: AsArray<T>) => R): void;
 	withOptions(options: TapOptions & IfSet<AdditionalOptions>): Hook<T, R>;
+	removeTap(name: string, fn: Function): void;
 }
 
 export class SyncHook<T, R = void, AdditionalOptions = UnsetAdditionalOptions> extends Hook<T, R, AdditionalOptions> {

@@ -9,6 +9,9 @@
     "type": "git",
     "url": "http://github.com/webpack/tapable.git"
   },
+  "publishConfig": {
+    "registry": "http://artifactory-pro.lppdev.pl/artifactory/api/npm/npm-local/"
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.4.4",
@@ -24,21 +27,23 @@
     "node": ">=6"
   },
   "files": [
-    "lib",
+    "!lib",
     "!lib/__tests__",
+    "dist",
+    "!dist/__tests__",
     "tapable.d.ts"
   ],
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "types": "./tapable.d.ts",
   "browser": {
-    "util": "./lib/util-browser.js"
+    "util": "./dist/util-browser.js"
   },
   "scripts": {
     "test": "jest",
     "travis": "yarn pretty-lint && jest --coverage && codecov",
     "pretty-lint": "prettier --check lib/*.js lib/__tests__/*.js",
     "pretty": "prettier --loglevel warn --write lib/*.js lib/__tests__/*.js",
-    "build": " ./node_modules/.bin/babel lib -d build"
+    "build": " ./node_modules/.bin/babel lib -d dist"
   },
   "jest": {
     "transform": {

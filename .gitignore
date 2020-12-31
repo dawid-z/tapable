@@ -13,3 +13,5 @@ Desktop.ini
 
 .idea/
 build/
+dist/
+.npmrc
